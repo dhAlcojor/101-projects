@@ -6,9 +6,10 @@ const projects = [
 	{
 		image: "https://placehold.co/1200x400",
 		title: "[000] 101 Proyectos",
-		href: "/projects/001-101-projects",
 		description: "La página de los 101 proyectos de Daniel H. Alcojor (sí, esta misma que estás visitando ahora mismo).",
 		tags: ["astro", "learning in public"],
+		repoUrl: "https://github.com/dhAlcojor/101-projects",
+		demoUrl: "https://dhalcojor.github.io/101-projects/",
 	},
 ]
 ---
@@ -23,15 +24,15 @@ const projects = [
 			<strong>101 Proyectos</strong> es un repositorio de proyectos de código abierto para aprender y compartir con la comunidad.
 		</p>
 		<ul role="list" class="grid grid-cols-1 md:max-w-[67%] lg:grid-cols-3 lg:gap-4 mt-8 p-0 mx-auto">
-			{projects.map((project, index) => (
+			{projects.map((project) => (
 				<Card
 					className="md:col-start-2"
-					key={index}
 					image={project.image}
-					href={project.href}
 					title={project.title}
 					body={project.description}
 					tags={project.tags}
+					repoUrl={project.repoUrl}
+					demoUrl={project.demoUrl}
 				/>
 			))}
 		</ul>

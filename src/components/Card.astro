@@ -5,13 +5,12 @@ interface Props {
 	className?: string;
 	title: string;
 	body: string;
-	href: string;
 	tags: string[];
 	repoUrl: string;
 	demoUrl: string;
 }
 
-const { image, className, title, body, href, tags, repoUrl, demoUrl } = Astro.props;
+const { image, className, title, body, tags, repoUrl, demoUrl } = Astro.props;
 ---
 
 <li class=`list-none text-white rounded-md hover:bg-gradient ${className || ''}`>
@@ -30,13 +29,13 @@ const { image, className, title, body, href, tags, repoUrl, demoUrl } = Astro.pr
 		</ul>
 		<ul class="links flex justify-end gap-2 mt-2">
 			<li>
-				<a href={repoUrl}>
+				<a href={repoUrl} target="_blank">
 					<Icon icon="github" />
 					<span>código</span>
 				</a>
 			</li>
 			<li>
-				<a href={demoUrl}>
+				<a href={demoUrl} target="_blank">
 					<Icon icon="web" />
 					<span>demo</span>
 				</a>
