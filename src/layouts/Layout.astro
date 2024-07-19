@@ -4,38 +4,55 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="101 proyectos de Daniel H. Alcojor" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
+		<header class="flex justify-between items-center p-4 text-white">
+			<h1 class="w-fit">
+				<a href="/">101 Proyectos</a>
+			</h1>
+			<a href="/about">Acerca de</a>
+		</header>
 		<slot />
+	<footer class="text-center fixed bottom-0 left-0 right-0 p-4 text-white">
+		Creado por Daniel H. Alcojor
+	</footer>
 	</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
 	html {
-		font-family: system-ui, sans-serif;
+		font-family: "Roboto Light", sans-serif;
 		background: #13151a;
-		background-size: 224px;
+	}
+	header {
+		h1 {
+			a {
+				@apply text-3xl text-primary font-bold border-accent;
+			}
+		}
+		a {
+			@apply text-accent font-bold border-primary hover:border-b-2 hover:border-dashed;
+		}
+	}
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 1200px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 18px;
+		line-height: 1.6;
 	}
 	code {
 		font-family:
