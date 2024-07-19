@@ -5,7 +5,10 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		colors: {
-			black: colors.black,
+			black: {
+				DEFAULT: colors.black,
+				light: colors.black["300"],
+			},
 			white: colors.white,
 			primary: {
 				DEFAULT: colors.purple["600"],

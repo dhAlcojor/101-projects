@@ -1,10 +1,28 @@
 ---
+import Icon from "../components/Icon.astro";
+import {IconName} from "../types";
 interface Props {
 	title: string;
 }
+type SocialLink = {
+	name: string;
+	href: string;
+	icon: IconName;
+}
 
 const { title } = Astro.props;
-
+const SOCIAL_LINKS: SocialLink[] = [
+		{
+			name: 'GitHub',
+			href: 'https://github.com/dhAlcojor',
+			icon: 'github'
+		},
+		{
+			name: 'Twitter',
+			href: 'https://twitter.com/alcojor_dev',
+			icon: 'twitter'
+		}
+	];
 ---
 
 <!doctype html>
@@ -20,13 +38,24 @@ const { title } = Astro.props;
 	<body>
 		<header class="flex justify-between items-center p-4 text-white">
 			<h1 class="w-fit">
-				<a href="/">101 Proyectos</a>
+				<a class="text-3xl text-primary font-bold border-accent" href="/">101 Proyectos</a>
 			</h1>
-			<a href="/about">Acerca de</a>
+			<a class="text-accent font-bold border-primary hover:border-b-2 hover:border-dashed" href="/about">Acerca de</a>
 		</header>
-		<slot />
-	<footer class="text-center fixed bottom-0 left-0 right-0 p-4 text-white">
-		Creado por Daniel H. Alcojor
+		<main class="m-auto p-4 max-w-[1200px] text-white">
+			<slot />
+		</main>
+	<footer class="text-center sticky p-4 text-white">
+		Creado por <strong>Daniel H. Alcojor</strong>
+		<div class="social-links mt-2 flex justify-center gap-2 text-white text-2xl">
+			{
+				SOCIAL_LINKS.map(({ name, href, icon }, index) => (
+					<a class={index % 2 == 0 ? 'text-primary' : 'text-accent'} href={href} target="_blank">
+						<Icon icon={icon} />
+					</a>
+				))
+			}
+		</div>
 	</footer>
 	</body>
 </html>
@@ -35,22 +64,7 @@ const { title } = Astro.props;
 		font-family: "Roboto Light", sans-serif;
 		background: #13151a;
 	}
-	header {
-		h1 {
-			a {
-				@apply text-3xl text-primary font-bold border-accent;
-			}
-		}
-		a {
-			@apply text-accent font-bold border-primary hover:border-b-2 hover:border-dashed;
-		}
-	}
 	main {
-		margin: auto;
-		padding: 1rem;
-		width: 1200px;
-		max-width: calc(100% - 2rem);
-		color: white;
 		font-size: 18px;
 		line-height: 1.6;
 	}

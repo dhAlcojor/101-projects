@@ -1,69 +1,61 @@
 ---
+import Icon from "./Icon.astro";
 interface Props {
 	image: string;
+	className?: string;
 	title: string;
 	body: string;
 	href: string;
 	tags: string[];
-	className?: string;
+	repoUrl: string;
+	demoUrl: string;
 }
 
-const { href, title, body, tags, className, image } = Astro.props;
+const { image, className, title, body, href, tags, repoUrl, demoUrl } = Astro.props;
 ---
 
-<li class=`link-card ${className || ''}`>
-	<a href={href}>
-		<img src={image} alt={title} />
-		<div class="card-content">
-			<h2>
-				{title}
-				<span>&rarr;</span>
-			</h2>
-			<p>
-				{body}
-			</p>
-			<ul class="tags">
-				{tags.map((tag) => (
-						<li class="tag">{tag}</li>
-				))}
-			</ul>
-		</div>
-	</a>
+<li class=`list-none text-white rounded-md hover:bg-gradient ${className || ''}`>
+	<img class="w-full rounded-t-md" src={image} alt={title} />
+	<div class="card-content bg-[#23262d] opacity-80 p-4 rounded-b-md">
+		<h2 class="m-0 text-2xl font-bold">
+			{title}
+		</h2>
+		<p class="my-4">
+			{body}
+		</p>
+		<ul class="flex flex-wrap gap-2 mt-2">
+			{tags.map((tag) => (
+				<li class="px-2 rounded-lg text-sm bg-primary-dark border-accent border-[1px]">{tag}</li>
+			))}
+		</ul>
+		<ul class="links flex justify-end gap-2 mt-2">
+			<li>
+				<a href={repoUrl}>
+					<Icon icon="github" />
+					<span>código</span>
+				</a>
+			</li>
+			<li>
+				<a href={demoUrl}>
+					<Icon icon="web" />
+					<span>demo</span>
+				</a>
+			</li>
+		</ul>
+	</div>
 </li>
 <style>
-	h2 {
-		@apply m-0 text-2xl;
-	}
-	p {
-		@apply my-4;
-	}
-	.link-card {
-		@apply list-none flex flex-col gap-4 rounded-md;
-
-		> a {
-			@apply w-full decoration-0 text-white rounded-md;
-			background-color: #23262d;
-			opacity: 0.8;
-
-			img {
-				@apply w-full rounded-t-md;
-			}
-
-			.card-content {
-				@apply p-4;
-			}
+	.card-content {
+		&:hover h2 {
+			@apply text-accent;
 		}
 	}
-	.link-card:is(:hover, :focus-within) {
-		@apply bg-gradient;
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		@apply text-accent;
-	}
-	.tags {
-		@apply flex flex-wrap gap-2 mt-2;
-	}
-	.tag {
-		@apply px-2 rounded-lg text-sm bg-primary-dark border-accent border-[1px];
+	.links {
+		li {
+			@apply py-2 px-2 text-sm bg-accent text-black rounded-lg cursor-pointer hover:bg-accent-dark hover:text-white font-bold;
+		}
+		a {
+			@apply flex items-center gap-2 w-fit;
+		}
 	}
 </style>
