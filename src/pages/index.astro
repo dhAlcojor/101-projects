@@ -23,10 +23,10 @@ const projects = [
 		<p class="description mb-4 border-2 border-accent p-3 rounded-lg md:max-w-[67%] mx-auto bg-accent-dark">
 			<strong>101 Proyectos</strong> es un repositorio de proyectos de código abierto para aprender y compartir con la comunidad.
 		</p>
-		<ul role="list" class="grid grid-cols-1 md:max-w-[67%] lg:grid-cols-3 lg:gap-4 mt-8 p-0 mx-auto">
+		<ul role="list" class="grid grid-cols-1 md:max-w-[67%] mt-8 p-0 mx-auto">
 			{projects.map((project) => (
 				<Card
-					className="md:col-start-2"
+					className="xl:col-start-2"
 					image={project.image}
 					title={project.title}
 					body={project.description}
