@@ -6,20 +6,19 @@ const projects = [
 	{
 		image: "/101-projects/img/000-101-projects.webp",
 		title: "[000] 101 Proyectos",
-		description: "La página de los 101 proyectos de Daniel H. Alcojor (sí, esta misma que estás visitando ahora mismo).",
+		description: "La página de los 101 proyectos (sí, esta misma que estás visitando ahora).",
 		tags: ["astro", "learning in public"],
 		repoUrl: "https://github.com/dhAlcojor/101-projects",
 		demoUrl: "https://dhalcojor.github.io/101-projects/",
 	},
 ]
 ---
-
 <Layout title="101 Proyectos de Daniel H. Alcojor">
 	<main>
-		<h1 class="text-5xl font-bold text-center mb-8">
+		<h2 class="text-5xl font-bold text-center mb-8">
 			Te doy la bienvenida a<br />
-			<span class="text-gradient">101 Proyectos</span>
-		</h1>
+			<span class="text-gradient"><code>101</code> Proyectos</span>
+		</h2>
 		<p class="description mb-4 border-2 border-accent p-3 rounded-lg md:max-w-[67%] mx-auto bg-accent-dark">
 			<strong>101 Proyectos</strong> es un repositorio de proyectos de código abierto para aprender y compartir con la comunidad.
 		</p>
@@ -43,6 +42,6 @@ const projects = [
 		@apply text-lg font-bold text-primary-light rounded-md px-2 py-1 bg-primary-dark;
 	}
 	.description strong {
-		@apply text-accent;
+		@apply text-primary-light;
 	}
 </style>

@@ -16,9 +16,9 @@ const { image, className, title, body, tags, repoUrl, demoUrl } = Astro.props;
 <li class=`list-none text-white rounded-md border-2 border-white hover:bg-gradient ${className || ''}`>
 	<img class="w-full rounded-t-md aspect-video" src={image} alt={title} />
 	<div class="card-content bg-[#23262d] opacity-80 p-4 rounded-b-md">
-		<h2 class="m-0 text-2xl font-bold">
+		<h3 class="m-0 text-xl font-bold">
 			{title}
-		</h2>
+		</h3>
 		<p class="my-4">
 			{body}
 		</p>
@@ -45,7 +45,7 @@ const { image, className, title, body, tags, repoUrl, demoUrl } = Astro.props;
 </li>
 <style>
 	.card-content {
-		&:hover h2 {
+		&:hover h3 {
 			@apply text-accent;
 		}
 	}

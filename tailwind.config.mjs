@@ -18,7 +18,7 @@ export default {
 			accent: {
 				DEFAULT: colors.amber["500"],
 				light: colors.amber["200"],
-				dark: colors.amber["800"],
+				dark: colors.amber["900"],
 			},
 		},
 		extend: {},

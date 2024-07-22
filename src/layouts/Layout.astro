@@ -4,13 +4,13 @@ import type {IconName} from "../types";
 interface Props {
 	title: string;
 }
+const { title } = Astro.props;
+
 type SocialLink = {
 	name: string;
 	href: string;
 	icon: IconName;
 }
-
-const { title } = Astro.props;
 const SOCIAL_LINKS: SocialLink[] = [
 		{
 			name: 'GitHub',
@@ -26,7 +26,7 @@ const SOCIAL_LINKS: SocialLink[] = [
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="101 proyectos de Daniel H. Alcojor" />
@@ -36,27 +36,28 @@ const SOCIAL_LINKS: SocialLink[] = [
 		<title>{title}</title>
 	</head>
 	<body>
-		<header class="flex justify-between items-center p-4 text-white">
-			<h1 class="w-fit">
-				<a class="text-3xl text-primary font-bold border-accent" href="/101-projects">101 Proyectos</a>
+		<header class="flex justify-between items-center py-4 px-16 text-white">
+			<h1 class="w-fit flex flex-col">
+				<a class="text-3xl text-primary font-bold border-accent" href="/101-projects"><code>101</code> Proyectos</a>
+				<small class="text-sm text-accent">por Daniel H. Alcojor</small>
 			</h1>
 			<a class="text-accent font-bold border-primary hover:border-b-2 hover:border-dashed" href="/101-projects/about">Acerca de</a>
 		</header>
 		<main class="m-auto p-4 max-w-[1200px] text-white">
 			<slot />
 		</main>
-	<footer class="text-center sticky p-4 text-white">
-		Creado por <strong>Daniel H. Alcojor</strong>
-		<div class="social-links mt-2 flex justify-center gap-2 text-white text-2xl">
-			{
-				SOCIAL_LINKS.map(({ name, href, icon }, index) => (
-					<a class={index % 2 == 0 ? 'text-primary' : 'text-accent'} href={href} target="_blank" title={name}>
-						<Icon icon={icon} />
-					</a>
-				))
-			}
-		</div>
-	</footer>
+		<footer class="text-center p-4 text-white">
+			Creado por <strong>Daniel H. Alcojor</strong>
+			<div class="social-links mt-2 flex justify-center gap-2 text-white text-2xl">
+				{
+					SOCIAL_LINKS.map(({ name, href, icon }, index) => (
+						<a class={index % 2 == 0 ? 'text-primary' : 'text-accent'} href={href} target="_blank" title={name}>
+							<Icon icon={icon} />
+						</a>
+					))
+				}
+			</div>
+		</footer>
 	</body>
 </html>
 <style is:global>
@@ -67,6 +68,10 @@ const SOCIAL_LINKS: SocialLink[] = [
 	main {
 		font-size: 18px;
 		line-height: 1.6;
+
+		h2 {
+			@apply text-2xl font-bold text-center mb-8;
+		}
 	}
 	code {
 		font-family:
