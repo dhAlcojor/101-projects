@@ -11,6 +11,14 @@ const projects = [
 		repoUrl: "https://github.com/dhAlcojor/101-projects",
 		demoUrl: "https://101-projects.alcojor.dev",
 	},
+	{
+		image: "/img/001-comic-fight.webp",
+		title: "[001] Comic Fight",
+		description: "Simulador de peleas con personajes de cómics.",
+		tags: ["angular18", "typescript", "tailwindcss"],
+		repoUrl: "https://github.com/dhAlcojor/comic-fight",
+		demoUrl: "https://comic-fight.alcojor.dev",
+	}
 ]
 ---
 <Layout title="101 Proyectos de Daniel H. Alcojor">
@@ -22,10 +30,10 @@ const projects = [
 		<p class="description mb-4 border-2 border-accent p-3 rounded-lg md:max-w-[67%] mx-auto bg-accent-dark">
 			<strong>101 Proyectos</strong> es un repositorio de proyectos de código abierto para aprender y compartir con la comunidad.
 		</p>
-		<ul role="list" class="grid grid-cols-1 md:max-w-[67%] mt-8 p-0 mx-auto">
-			{projects.map((project) => (
+		<ul role="list" class="grid grid-cols-2 gap-4 mt-8 p-0 mx-auto">
+			{projects.reverse().map((project) => (
 				<Card
-					className="xl:col-start-2"
+					className=""
 					image={project.image}
 					title={project.title}
 					body={project.description}
