@@ -3,11 +3,10 @@ import type {IconName} from "../types";
 import {ICONS} from "../constants";
 interface Props {
 	icon: IconName;
-  title: string;
 }
 
-const { icon, title } = Astro.props;
+const { icon } = Astro.props;
 let { default: innerHTML } = await import(`../icons/${ICONS[icon]}.svg?raw`);
-innerHTML = innerHTML.replace(">", `><title id="${title}-${icon}-id">${icon} icon</title>`);
+innerHTML = innerHTML.replace(">", `><title id="${icon}-id">${icon} icon</title>`);
 ---
 <Fragment set:html={innerHTML} title={icon + " icon"} />
