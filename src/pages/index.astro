@@ -23,7 +23,7 @@ const projects = [
 ---
 <Layout title="101 Proyectos de Daniel H. Alcojor">
 	<main>
-		<h2 class="text-5xl font-bold text-center mb-8">
+		<h2 class="text-3xl md:text-5xl font-bold text-center mb-8">
 			Te doy la bienvenida a<br />
 			<span class="text-gradient"><code>101</code> Proyectos</span>
 		</h2>
@@ -33,7 +33,6 @@ const projects = [
 		<ul role="list" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 p-0 mx-auto">
 			{projects.reverse().map((project) => (
 				<Card
-					className=""
 					image={project.image}
 					title={project.title}
 					body={project.description}
